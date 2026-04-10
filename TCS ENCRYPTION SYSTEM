@@ -1,0 +1,72 @@
+# PF-ASSIGMENTS
+#include<stdio.h>
+#include <string.h>
+void reversal(char str[])
+{
+int size=strlen(str);
+for (int i = 0; i < size/2; i++)
+{
+char temp = str[i];
+str[i] = str[size - i - 1];
+str[size - i - 1] = temp;
+}
+printf("reversed word:  %s", str);
+}
+
+  void encodeMessage(char str[]) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        unsigned char ch = str[i];
+
+        // Toggle 2nd and 5th bits (from right)
+        ch = ch ^ (1 << 1); // toggle bit 2
+        ch = ch ^ (1 << 4); // toggle bit 5
+
+        str[i] = ch; // store back modified character
+    }
+
+
+  }
+  void decode(char str[]){
+    for (int i = 0; str[i] != '\0'; i++) {
+        unsigned char ch = str[i];
+
+        // Toggle 2nd and 5th bits (from right)
+        ch = ch ^ (1 << 1); // toggle bit 2
+        ch = ch ^ (1 << 4); // toggle bit 5
+
+        str[i] = ch;}
+        }
+
+
+
+
+ #include<stdio.h>
+int main(){
+    int choice;
+    char str[]="your rider is ready";
+     printf("original message: %s\n", str);
+    printf("main menue\n");
+    printf("1.encode message type 1 or 0 if not\n");
+    scanf("%d", &choice);
+    if (choice==1)
+    {
+        reversal(str);
+        encodeMessage(str);
+         printf("\nEncoded Message: %s\n", str);
+    }
+    printf("2.decode message type 2\n");
+    scanf("%d", &choice);
+if (choice==2)
+    {
+        decode(str);
+         printf("\ndecoded message %s\n", str);
+         reversal(str);
+    }
+    printf("\n3.exit enter 3\n");
+    scanf("%d", &choice);
+    if (choice==3)
+    {
+        printf("exiting program\n");
+    }
+return 0;
+}
